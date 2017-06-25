@@ -3,5 +3,33 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
+<div class="container">
+
+<h1 th:text="${header}"></h1>
+
+    <form th:object="${url}" method="post">
+
+        <div class="form-group row">
+            <label th:for="longUrl" class="col-sm-2 col-form-label">Enter the URL you'd like to shorten:</label>
+            <div class="col-sm-7">
+                <input type="text" th:field="*{longUrl}" class="input-lg form-control" />
+            </div>
+            <span th:errors="*{longUrl}" class="text-danger col-sm-3"></span>
+        </div>
+
+        <div class="form-group row">
+            <label th:for="shortUrlCode" class="col-sm-2 col-form-label">Enter a unique phrase to use for your short URL:</label>
+            <div class="col-sm-7">
+                <input type="text" th:field="*{shortUrlCode}" class="input-lg form-control" />
+            </div>
+            <span th:errors="*{shortUrlCode}" class="text-danger col-sm-3"></span>
+        </div>
+
+        <input type="submit" class="input-lg btn btn-default" value="Shorten URL" />
+
+    </form>
+
+</div>
+
 </body>
 </html>
